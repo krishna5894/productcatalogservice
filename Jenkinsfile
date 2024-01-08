@@ -25,7 +25,7 @@ spec:
         container('gcloud-kubectl-docker') {
           sh "gcloud auth activate-service-account --key-file=extended-arcana-408715-08a0471e7544.json"
           sh "gcloud config set project extended-arcana-408715"
-          sh "PYTHONUNBUFFERED=1 gcloud builds submit -t gcr.io/extended-arcana-408715/adservice ."
+          sh "PYTHONUNBUFFERED=1 gcloud builds submit -t gcr.io/extended-arcana-408715/productcatalogservice ."
         }
       }
    }
@@ -33,7 +33,7 @@ spec:
       steps{
         container('gcloud-kubectl-docker'){
           sh"gcloud container clusters get-credentials mycluster --zone asia-east1-a --project extended-arcana-408715"
-          sh"kubectl apply -f adservice.yaml"
+          sh"kubectl apply -f productcatalogservice.yaml"
 }
 }
 
